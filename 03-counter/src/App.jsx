@@ -7,6 +7,7 @@ function App() {
   const addCount = () => {
     if (count < 20) {
       setCount((count) => count + 1);
+      setCount((count) => count + 1);
     }
   };
   const removeCount = () => {

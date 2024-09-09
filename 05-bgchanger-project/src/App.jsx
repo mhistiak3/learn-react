@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Color } from "./Color";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [bgColor, setBgColor] = useState("#000");
+  const colors = [
+    { name: "Purple", hex: "#8B5CF6" },
+    { name: "Pink", hex: "#EC4899" },
+    { name: "Green", hex: "#34D399" },
+    { name: "Amber", hex: "#F59E0B" },
+    { name: "Sky Blue", hex: "#3B82F6" },
+    { name: "Red", hex: "#F87171" },
+    { name: "Orchid", hex: "#A855F7" },
+    { name: "Emerald", hex: "#10B981" },
+    { name: "Yellow Orange", hex: "#FBBF24" },
+    { name: "Indigo", hex: "#6366F1" },
+  ];
+
+  const changeColor = (color) => {
+    setBgColor(color);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app" style={{ backgroundColor: bgColor }}>
+      <div className="colors">
+        {colors.map((color) => (
+          <Color color={color} changeColor={changeColor} />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
