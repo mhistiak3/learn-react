@@ -1,7 +1,6 @@
-import { useContext } from "react";
-import UserContext from "../context/UserContext";
+import { useData } from "../context/UserContext";
 const GithubInfo = () => {
-    const { user } = useContext(UserContext);
+  const { user } = useData()
   return (
     <div>
       <header className="flex flex-col md:flex-row items-center mb-6">
@@ -33,7 +32,7 @@ const GithubInfo = () => {
             )}
           </div>
           <button className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700">
-            Follow
+            <a href={`https://github.com/${user.login}`}> Follow</a>
           </button>
         </div>
       </header>

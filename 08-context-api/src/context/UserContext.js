@@ -1,5 +1,11 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 
 const UserContext =createContext()
 
-export default UserContext
+const UserContextProvider = UserContext.Provider
+
+const useData = ()=>{
+    return useContext(UserContext);
+}
+
+export { UserContext, UserContextProvider, useData };

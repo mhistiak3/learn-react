@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import UserContext from "../context/UserContext";
+import { useData } from "../context/UserContext";
 
 const GithubRepo = () => {
-    const {repos } = useContext(UserContext);
+  const { repos } =useData()
   return (
     <section className="mt-8">
       <h2 className="text-2xl font-semibold text-purple-700 mb-4">
